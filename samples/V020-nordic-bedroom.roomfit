@@ -1,0 +1,261 @@
+{
+  "schema": "RoomFit3D",
+  "version": 3,
+  "units": "mm",
+  "coordinates": "RH-Y-up-X-right-Z-plan-down",
+  "id": "4c395a37-cb9a-443c-a7b0-e678d6416271",
+  "name": "北欧卧室",
+  "author": "Links Tam",
+  "createdAt": "2026-10-20T10:10:18.373Z",
+  "modifiedAt": "2026-10-20T10:10:18.373Z",
+  "dimensionConfidence": "estimated",
+  "rooms": [
+    {
+      "id": "29e60e5e-8f83-4714-8fcf-1504453f1773",
+      "name": "卧室",
+      "polygon": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 4000,
+          "z": 0
+        },
+        {
+          "x": 4000,
+          "z": 3500
+        },
+        {
+          "x": 0,
+          "z": 3500
+        }
+      ],
+      "height": 2800,
+      "confidence": "estimated"
+    }
+  ],
+  "walls": [
+    {
+      "id": "b10af27d-6aac-4d90-b68b-82ed84a7a044",
+      "start": {
+        "x": -60,
+        "z": -60
+      },
+      "end": {
+        "x": 4060,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "2836e552-785e-4f6d-9ba3-5700e09e80b9",
+      "start": {
+        "x": 4060,
+        "z": -60
+      },
+      "end": {
+        "x": 4060,
+        "z": 3560
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "7f9db3b9-2c01-49bc-a900-30799bd11e78",
+      "start": {
+        "x": 4060,
+        "z": 3560
+      },
+      "end": {
+        "x": -60,
+        "z": 3560
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "1736a203-2f5a-4c64-a2b6-f43ce0246a37",
+      "start": {
+        "x": -60,
+        "z": 3560
+      },
+      "end": {
+        "x": -60,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    }
+  ],
+  "openings": [
+    {
+      "id": "e212a9e3-7810-4a1f-a500-f7e4775070f1",
+      "wallId": "7f9db3b9-2c01-49bc-a900-30799bd11e78",
+      "kind": "door",
+      "offset": 650,
+      "width": 850,
+      "height": 2100,
+      "sill": 0,
+      "swing": "left"
+    },
+    {
+      "id": "009c056b-1258-4f42-b86d-e8154e4ca606",
+      "wallId": "b10af27d-6aac-4d90-b68b-82ed84a7a044",
+      "kind": "window",
+      "offset": 2060,
+      "width": 1600,
+      "height": 1450,
+      "sill": 850,
+      "swing": "left"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "6bff15b4-4f26-478d-bcb3-57ca0dcedda9",
+      "name": "双人床",
+      "catalogId": "bed_queen",
+      "width": 1800,
+      "depth": 2000,
+      "height": 1050,
+      "x": 1800,
+      "y": 0,
+      "z": 1295,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "fadfaf2d-f63f-42e9-afbe-ffeea6173f9d",
+      "name": "单抽床头柜",
+      "catalogId": "nightstand",
+      "width": 450,
+      "depth": 400,
+      "height": 500,
+      "x": 520,
+      "y": 0,
+      "z": 400,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "51ca0811-3a75-4697-8728-390a991c2b4a",
+      "name": "衣柜",
+      "catalogId": "wardrobe",
+      "width": 1600,
+      "depth": 600,
+      "height": 2400,
+      "x": 850,
+      "y": 0,
+      "z": 3150,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "f8f0bb4b-386f-46f1-9250-b47c86fecbb8",
+      "name": "蘑菇台灯",
+      "catalogId": "lamp_table",
+      "width": 300,
+      "depth": 300,
+      "height": 400,
+      "x": 520,
+      "y": 500,
+      "z": 400,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "light": {
+        "enabled": true,
+        "color": "#9365ff",
+        "intensity": 2
+      }
+    },
+    {
+      "id": "6eb662c9-fa50-430c-8735-0aa72f974532",
+      "name": "窗帘",
+      "catalogId": "curtain",
+      "width": 2200,
+      "depth": 100,
+      "height": 2600,
+      "x": 2000,
+      "y": 0,
+      "z": 60,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    }
+  ],
+  "materials": {
+    "floor": {
+      "color": "#b7a184",
+      "roughness": 0.48,
+      "metalness": 0,
+      "kind": "wood",
+      "tileMm": 600
+    },
+    "wall": {
+      "color": "#eeeae2",
+      "roughness": 0.82,
+      "metalness": 0,
+      "kind": "paint",
+      "tileMm": 600
+    }
+  },
+  "camera": {
+    "position": [
+      3760,
+      1550,
+      3290
+    ],
+    "target": [
+      1800,
+      950,
+      875
+    ],
+    "fov": 62
+  },
+  "render": {
+    "preset": "day",
+    "width": 1920,
+    "height": 1080,
+    "samples": 64,
+    "exposure": 0
+  },
+  "clearanceTarget": 600,
+  "assets": {},
+  "notes": [
+    "日照为示意照明，未进行地理方位分析。",
+    "装修模板仅为示例，并非任何真实住宅或实购商品。 / Example layout, not a surveyed home."
+  ]
+}

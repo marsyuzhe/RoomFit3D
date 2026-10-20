@@ -1,0 +1,457 @@
+{
+  "schema": "RoomFit3D",
+  "version": 3,
+  "units": "mm",
+  "coordinates": "RH-Y-up-X-right-Z-plan-down",
+  "id": "a072cfaf-ce41-4b64-a603-3b32ec3bc383",
+  "name": "10㎡ 白色北欧电竞房",
+  "author": "Links Tam",
+  "createdAt": "2026-10-20T10:10:18.165Z",
+  "modifiedAt": "2026-10-20T10:10:18.165Z",
+  "dimensionConfidence": "estimated",
+  "rooms": [
+    {
+      "id": "74d4eb0f-f727-421b-a71a-8626448fd26c",
+      "name": "卧室",
+      "polygon": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 4000,
+          "z": 0
+        },
+        {
+          "x": 4000,
+          "z": 2500
+        },
+        {
+          "x": 0,
+          "z": 2500
+        }
+      ],
+      "height": 2800,
+      "confidence": "estimated"
+    }
+  ],
+  "walls": [
+    {
+      "id": "471da389-0940-4aef-8f5e-a1aeca855614",
+      "start": {
+        "x": -60,
+        "z": -60
+      },
+      "end": {
+        "x": 4060,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "bfce9bca-cde2-40df-82f7-5079bc1e3de6",
+      "start": {
+        "x": 4060,
+        "z": -60
+      },
+      "end": {
+        "x": 4060,
+        "z": 2560
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "93c49d38-fba0-4506-b5f9-baddb6b07797",
+      "start": {
+        "x": 4060,
+        "z": 2560
+      },
+      "end": {
+        "x": -60,
+        "z": 2560
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "263dbc3b-7e0c-4c72-87c5-6fe18e36db49",
+      "start": {
+        "x": -60,
+        "z": 2560
+      },
+      "end": {
+        "x": -60,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    }
+  ],
+  "openings": [
+    {
+      "id": "10f17ede-32ee-4909-9bea-35b46e096e45",
+      "wallId": "93c49d38-fba0-4506-b5f9-baddb6b07797",
+      "kind": "door",
+      "offset": 650,
+      "width": 850,
+      "height": 2100,
+      "sill": 0,
+      "swing": "left"
+    },
+    {
+      "id": "b3acaa8f-2f8f-4b1a-8e34-805e06876a38",
+      "wallId": "471da389-0940-4aef-8f5e-a1aeca855614",
+      "kind": "window",
+      "offset": 2060,
+      "width": 1600,
+      "height": 1450,
+      "sill": 850,
+      "swing": "left"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "c088f152-36f5-44d3-a827-ab00ae85951c",
+      "name": "直列走线电竞桌",
+      "catalogId": "gaming_desk",
+      "width": 2000,
+      "depth": 700,
+      "height": 750,
+      "x": 2000,
+      "y": 0,
+      "z": 500,
+      "rotation": 0,
+      "color": "#dedbd0",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "b59ffdcd-46ee-4723-8960-f9da1ec14723",
+      "name": "曲面超宽屏",
+      "catalogId": "monitor_ultrawide",
+      "width": 820,
+      "depth": 250,
+      "height": 430,
+      "x": 2000,
+      "y": 750,
+      "z": 360,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "support": {
+        "parentId": "c088f152-36f5-44d3-a827-ab00ae85951c",
+        "x": 0,
+        "z": -140,
+        "rotation": 0,
+        "offsetY": 0
+      },
+      "light": {
+        "enabled": true,
+        "color": "#6c92bd",
+        "intensity": 0.4
+      }
+    },
+    {
+      "id": "f1b52fc3-9ec4-44f0-a270-dcf672b19e60",
+      "name": "机械键盘",
+      "catalogId": "keyboard",
+      "width": 440,
+      "depth": 140,
+      "height": 35,
+      "x": 2000,
+      "y": 750,
+      "z": 650,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "support": {
+        "parentId": "c088f152-36f5-44d3-a827-ab00ae85951c",
+        "x": 0,
+        "z": 150,
+        "rotation": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "2baecfce-edcb-41fb-9424-4679a916581e",
+      "name": "人体工学鼠标",
+      "catalogId": "mouse",
+      "width": 70,
+      "depth": 125,
+      "height": 42,
+      "x": 2400,
+      "y": 750,
+      "z": 650,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "support": {
+        "parentId": "c088f152-36f5-44d3-a827-ab00ae85951c",
+        "x": 400,
+        "z": 150,
+        "rotation": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "25e00892-db1f-4861-b64e-37dc1c86cf70",
+      "name": "侧透三风扇机箱",
+      "catalogId": "pc_glass",
+      "width": 240,
+      "depth": 450,
+      "height": 500,
+      "x": 2800,
+      "y": 750,
+      "z": 480,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "support": {
+        "parentId": "c088f152-36f5-44d3-a827-ab00ae85951c",
+        "x": 800,
+        "z": -20,
+        "rotation": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "43cf53a7-3d61-4655-809a-2b40d23d1619",
+      "name": "双箱桌面音响",
+      "catalogId": "speaker_pair",
+      "width": 420,
+      "depth": 180,
+      "height": 240,
+      "x": 1250,
+      "y": 750,
+      "z": 400,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "support": {
+        "parentId": "c088f152-36f5-44d3-a827-ab00ae85951c",
+        "x": -750,
+        "z": -100,
+        "rotation": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "25de06e6-7156-4dab-a732-571bd7750255",
+      "name": "耳机与支架",
+      "catalogId": "headphone_stand",
+      "width": 190,
+      "depth": 160,
+      "height": 300,
+      "x": 1300,
+      "y": 750,
+      "z": 650,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "support": {
+        "parentId": "c088f152-36f5-44d3-a827-ab00ae85951c",
+        "x": -700,
+        "z": 150,
+        "rotation": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "45ef4055-ddc6-46b2-976a-def8e67ed2f5",
+      "name": "侧翼电竞椅",
+      "catalogId": "gaming_chair",
+      "width": 700,
+      "depth": 700,
+      "height": 1250,
+      "x": 2000,
+      "y": 0,
+      "z": 1350,
+      "rotation": 180,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "0d08cc45-c313-48c5-894b-c48e74a708ff",
+      "name": "六边形组合灯",
+      "catalogId": "rgb_hex",
+      "width": 660,
+      "depth": 30,
+      "height": 570,
+      "x": 40,
+      "y": 1500,
+      "z": 1000,
+      "rotation": 90,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "light": {
+        "enabled": true,
+        "color": "#9365ff",
+        "intensity": 2
+      }
+    },
+    {
+      "id": "75b65238-e773-49fc-9a94-74b7ee44da42",
+      "name": "立式转角氛围灯",
+      "catalogId": "rgb_corner",
+      "width": 300,
+      "depth": 300,
+      "height": 1400,
+      "x": 3750,
+      "y": 0,
+      "z": 250,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "light": {
+        "enabled": true,
+        "color": "#9365ff",
+        "intensity": 2
+      }
+    },
+    {
+      "id": "9bc99c7a-2dd3-4eb6-b1c4-e11dadcc1ea2",
+      "name": "玻璃门展示柜",
+      "catalogId": "display_glass",
+      "width": 800,
+      "depth": 400,
+      "height": 1800,
+      "x": 450,
+      "y": 0,
+      "z": 2050,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "faa434ec-a7ad-40e0-9512-59acb7937173",
+      "name": "沟槽吸音板",
+      "catalogId": "acoustic_panel",
+      "width": 600,
+      "depth": 60,
+      "height": 1200,
+      "x": 3960,
+      "y": 800,
+      "z": 1600,
+      "rotation": 90,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "dc45ab91-e05a-4d65-8690-c11d8d2a2675",
+      "name": "窗帘",
+      "catalogId": "curtain",
+      "width": 2200,
+      "depth": 100,
+      "height": 2600,
+      "x": 2000,
+      "y": 0,
+      "z": 60,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    }
+  ],
+  "materials": {
+    "floor": {
+      "color": "#857159",
+      "roughness": 0.48,
+      "metalness": 0,
+      "kind": "wood",
+      "tileMm": 600
+    },
+    "wall": {
+      "color": "#eeeae2",
+      "roughness": 0.82,
+      "metalness": 0,
+      "kind": "paint",
+      "tileMm": 600
+    }
+  },
+  "camera": {
+    "position": [
+      3760,
+      1550,
+      2350
+    ],
+    "target": [
+      1800,
+      950,
+      625
+    ],
+    "fov": 62
+  },
+  "render": {
+    "preset": "day",
+    "width": 1920,
+    "height": 1080,
+    "samples": 64,
+    "exposure": 0
+  },
+  "clearanceTarget": 600,
+  "assets": {},
+  "notes": [
+    "日照为示意照明，未进行地理方位分析。",
+    "装修模板仅为示例，并非任何真实住宅或实购商品。 / Example layout, not a surveyed home."
+  ]
+}

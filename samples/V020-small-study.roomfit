@@ -1,0 +1,291 @@
+{
+  "schema": "RoomFit3D",
+  "version": 3,
+  "units": "mm",
+  "coordinates": "RH-Y-up-X-right-Z-plan-down",
+  "id": "2dc66c4c-e8a7-4ce3-a39f-6fd5f433582c",
+  "name": "小书房",
+  "author": "Links Tam",
+  "createdAt": "2026-10-20T10:10:18.419Z",
+  "modifiedAt": "2026-10-20T10:10:18.419Z",
+  "dimensionConfidence": "estimated",
+  "rooms": [
+    {
+      "id": "6ddf2dbd-bd06-4f42-b02a-624000a8910d",
+      "name": "卧室",
+      "polygon": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 3000,
+          "z": 0
+        },
+        {
+          "x": 3000,
+          "z": 2800
+        },
+        {
+          "x": 0,
+          "z": 2800
+        }
+      ],
+      "height": 2800,
+      "confidence": "estimated"
+    }
+  ],
+  "walls": [
+    {
+      "id": "aa5a9148-d1a3-40a7-addd-3d69fb330b2e",
+      "start": {
+        "x": -60,
+        "z": -60
+      },
+      "end": {
+        "x": 3060,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "24d25b5a-bb29-4905-93a1-e0a897cdc272",
+      "start": {
+        "x": 3060,
+        "z": -60
+      },
+      "end": {
+        "x": 3060,
+        "z": 2860
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "391446c1-a23f-4971-ac1b-7ebe22dbbf82",
+      "start": {
+        "x": 3060,
+        "z": 2860
+      },
+      "end": {
+        "x": -60,
+        "z": 2860
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "1b38acb8-eb79-4941-9d2e-0d8cfec4723d",
+      "start": {
+        "x": -60,
+        "z": 2860
+      },
+      "end": {
+        "x": -60,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    }
+  ],
+  "openings": [
+    {
+      "id": "023b0844-fbcb-428a-bb1c-f1e0b097b365",
+      "wallId": "391446c1-a23f-4971-ac1b-7ebe22dbbf82",
+      "kind": "door",
+      "offset": 650,
+      "width": 850,
+      "height": 2100,
+      "sill": 0,
+      "swing": "left"
+    },
+    {
+      "id": "46d475af-a887-4929-a3d4-4456d5924117",
+      "wallId": "aa5a9148-d1a3-40a7-addd-3d69fb330b2e",
+      "kind": "window",
+      "offset": 1560,
+      "width": 1500,
+      "height": 1450,
+      "sill": 850,
+      "swing": "left"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "7a692302-ed34-4a69-b9a4-0907249ead9d",
+      "name": "书桌",
+      "catalogId": "desk",
+      "width": 1200,
+      "depth": 600,
+      "height": 750,
+      "x": 1500,
+      "y": 0,
+      "z": 450,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "89d9742a-cb93-4793-946b-858b39f83af3",
+      "name": "办公椅",
+      "catalogId": "office_chair",
+      "width": 600,
+      "depth": 600,
+      "height": 1000,
+      "x": 1500,
+      "y": 0,
+      "z": 1200,
+      "rotation": 180,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "c01c7452-238d-48a8-996e-f7752f7f3b16",
+      "name": "书架",
+      "catalogId": "bookshelf",
+      "width": 900,
+      "depth": 350,
+      "height": 1900,
+      "x": 500,
+      "y": 0,
+      "z": 2550,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "a1068622-5348-4b5d-80d5-97f40a0b15f7",
+      "name": "27寸音箱一体显示器",
+      "catalogId": "monitor_27",
+      "width": 620,
+      "depth": 220,
+      "height": 470,
+      "x": 1500,
+      "y": 750,
+      "z": 400,
+      "rotation": 0,
+      "color": "#343b48",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "support": {
+        "parentId": "7a692302-ed34-4a69-b9a4-0907249ead9d",
+        "x": 0,
+        "z": -50,
+        "rotation": 0,
+        "offsetY": 0
+      },
+      "light": {
+        "enabled": true,
+        "color": "#6c92bd",
+        "intensity": 0.4
+      }
+    },
+    {
+      "id": "9cffee3d-9356-47a6-843e-fc02432b1eb9",
+      "name": "落地灯",
+      "catalogId": "floor_lamp",
+      "width": 450,
+      "depth": 450,
+      "height": 1650,
+      "x": 2700,
+      "y": 0,
+      "z": 2500,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "light": {
+        "enabled": true,
+        "color": "#9365ff",
+        "intensity": 2
+      }
+    },
+    {
+      "id": "cc9cc2b8-3dfd-4be6-9748-197aaec8dc94",
+      "name": "窗帘",
+      "catalogId": "curtain",
+      "width": 1800,
+      "depth": 100,
+      "height": 2600,
+      "x": 1500,
+      "y": 0,
+      "z": 60,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    }
+  ],
+  "materials": {
+    "floor": {
+      "color": "#b7a184",
+      "roughness": 0.48,
+      "metalness": 0,
+      "kind": "wood",
+      "tileMm": 600
+    },
+    "wall": {
+      "color": "#eeeae2",
+      "roughness": 0.82,
+      "metalness": 0,
+      "kind": "paint",
+      "tileMm": 600
+    }
+  },
+  "camera": {
+    "position": [
+      2820,
+      1550,
+      2632
+    ],
+    "target": [
+      1350,
+      950,
+      700
+    ],
+    "fov": 62
+  },
+  "render": {
+    "preset": "day",
+    "width": 1920,
+    "height": 1080,
+    "samples": 64,
+    "exposure": 0
+  },
+  "clearanceTarget": 600,
+  "assets": {},
+  "notes": [
+    "日照为示意照明，未进行地理方位分析。",
+    "装修模板仅为示例，并非任何真实住宅或实购商品。 / Example layout, not a surveyed home."
+  ]
+}

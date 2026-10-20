@@ -1,0 +1,3 @@
+# Public test fixture provenance
+
+The root app/test-roomplan.json and app/static/test-roomplan-multiroom.json in this publication copy are **synthetic**, authored from simple rectangles by Links Tam, MIT. They are not real home captures. The original development files with the same names were not copied: the original raw scan includes an embedded base64 image of uncertain privacy provenance. Synthetic replacements keep the original outer-envelope and section-order regression assertions; tests were not removed or skipped. The multi-room fixture has an 8×4 m open area with an attached 2×2 m room and an outlying unidentified label; it is a deterministic algorithm test, not evidence of sensor accuracy.

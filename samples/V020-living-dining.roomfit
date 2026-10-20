@@ -1,0 +1,333 @@
+{
+  "schema": "RoomFit3D",
+  "version": 3,
+  "units": "mm",
+  "coordinates": "RH-Y-up-X-right-Z-plan-down",
+  "id": "27df9086-4ad3-44c9-a2b1-32b2cb75dfef",
+  "name": "客餐厅",
+  "author": "Links Tam",
+  "createdAt": "2026-10-20T10:10:18.432Z",
+  "modifiedAt": "2026-10-20T10:10:18.432Z",
+  "dimensionConfidence": "estimated",
+  "rooms": [
+    {
+      "id": "9938f1f7-6726-42c4-aba6-d16403a5f492",
+      "name": "卧室",
+      "polygon": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 6000,
+          "z": 0
+        },
+        {
+          "x": 6000,
+          "z": 4000
+        },
+        {
+          "x": 0,
+          "z": 4000
+        }
+      ],
+      "height": 2800,
+      "confidence": "estimated"
+    }
+  ],
+  "walls": [
+    {
+      "id": "afa52a5d-fd7d-4537-8e10-ed92eed058bb",
+      "start": {
+        "x": -60,
+        "z": -60
+      },
+      "end": {
+        "x": 6060,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "8c4cb05b-d6c4-47da-aa38-72730343485e",
+      "start": {
+        "x": 6060,
+        "z": -60
+      },
+      "end": {
+        "x": 6060,
+        "z": 4060
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "d5da9a06-c082-42ad-89ca-d5da18bac9b7",
+      "start": {
+        "x": 6060,
+        "z": 4060
+      },
+      "end": {
+        "x": -60,
+        "z": 4060
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "80237fdc-a5d2-4846-9709-839d60ce6095",
+      "start": {
+        "x": -60,
+        "z": 4060
+      },
+      "end": {
+        "x": -60,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    }
+  ],
+  "openings": [
+    {
+      "id": "cac825ef-5565-4962-b650-612f2fd6e3f9",
+      "wallId": "d5da9a06-c082-42ad-89ca-d5da18bac9b7",
+      "kind": "door",
+      "offset": 650,
+      "width": 850,
+      "height": 2100,
+      "sill": 0,
+      "swing": "left"
+    },
+    {
+      "id": "06f2c97f-ac21-4c3d-b94c-eabeee357c35",
+      "wallId": "afa52a5d-fd7d-4537-8e10-ed92eed058bb",
+      "kind": "window",
+      "offset": 3060,
+      "width": 1600,
+      "height": 1450,
+      "sill": 850,
+      "swing": "left"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "c63e177e-7e93-4cd4-86ea-14fec582d050",
+      "name": "沙发",
+      "catalogId": "sofa",
+      "width": 2200,
+      "depth": 950,
+      "height": 850,
+      "x": 3000,
+      "y": 0,
+      "z": 3450,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "4bdd54bd-0df3-41fb-b387-e1f57b76dd30",
+      "name": "茶几",
+      "catalogId": "coffee_table",
+      "width": 1200,
+      "depth": 600,
+      "height": 420,
+      "x": 3000,
+      "y": 0,
+      "z": 2400,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "b747ac03-4397-4538-afed-6ea846eea562",
+      "name": "电视柜",
+      "catalogId": "tv_stand",
+      "width": 1800,
+      "depth": 400,
+      "height": 500,
+      "x": 3000,
+      "y": 0,
+      "z": 250,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "29643431-fac1-4296-b030-6850df629abe",
+      "name": "电视",
+      "catalogId": "television",
+      "width": 1450,
+      "depth": 220,
+      "height": 850,
+      "x": 3000,
+      "y": 500,
+      "z": 250,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": "",
+      "light": {
+        "enabled": true,
+        "color": "#6c92bd",
+        "intensity": 0.4
+      }
+    },
+    {
+      "id": "b51e94b3-3e67-484b-a702-e358f476511f",
+      "name": "阔叶盆栽",
+      "catalogId": "plant",
+      "width": 650,
+      "depth": 650,
+      "height": 1400,
+      "x": 5550,
+      "y": 0,
+      "z": 550,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "21c6960f-0e05-4d4d-983b-ede6680024f7",
+      "name": "圆餐桌",
+      "catalogId": "dining_round",
+      "width": 1100,
+      "depth": 1100,
+      "height": 750,
+      "x": 900,
+      "y": 0,
+      "z": 1500,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "abafde35-8fe6-4842-ac77-415461ba0507",
+      "name": "餐椅",
+      "catalogId": "dining_chair",
+      "width": 450,
+      "depth": 500,
+      "height": 900,
+      "x": 900,
+      "y": 0,
+      "z": 2400,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "2cecb72d-d034-44a5-bd6a-91dc47869699",
+      "name": "餐椅",
+      "catalogId": "dining_chair",
+      "width": 450,
+      "depth": 500,
+      "height": 900,
+      "x": 1800,
+      "y": 0,
+      "z": 1500,
+      "rotation": 90,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "e599514f-8a94-41d7-b2eb-43377a0097f2",
+      "name": "窗帘",
+      "catalogId": "curtain",
+      "width": 2200,
+      "depth": 100,
+      "height": 2600,
+      "x": 3000,
+      "y": 0,
+      "z": 60,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    }
+  ],
+  "materials": {
+    "floor": {
+      "color": "#b7a184",
+      "roughness": 0.48,
+      "metalness": 0,
+      "kind": "wood",
+      "tileMm": 600
+    },
+    "wall": {
+      "color": "#eeeae2",
+      "roughness": 0.82,
+      "metalness": 0,
+      "kind": "paint",
+      "tileMm": 600
+    }
+  },
+  "camera": {
+    "position": [
+      5640,
+      1550,
+      3760
+    ],
+    "target": [
+      2700,
+      950,
+      1000
+    ],
+    "fov": 62
+  },
+  "render": {
+    "preset": "day",
+    "width": 1920,
+    "height": 1080,
+    "samples": 64,
+    "exposure": 0
+  },
+  "clearanceTarget": 600,
+  "assets": {},
+  "notes": [
+    "日照为示意照明，未进行地理方位分析。",
+    "装修模板仅为示例，并非任何真实住宅或实购商品。 / Example layout, not a surveyed home."
+  ]
+}
