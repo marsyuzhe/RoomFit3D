@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@custom-variant dark (&.dark);
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ── Dark mode transitions ──────────────────────────────────── */
+html {
+  color-scheme: light;
+}
+html.dark:not(.roomfit-light) {
+  color-scheme: dark;
+}
+
+/* ── Dark mode overrides ────────────────────────────────────── */
+html.dark:not(.roomfit-light) {
+  /* Global background and text */
+  --tw-bg-opacity: 1;
+}
+
+/* Override common bg/text patterns in dark mode */
+html.dark:not(.roomfit-light) .bg-white { background-color: #1f2937 !important; }
+html.dark:not(.roomfit-light) .bg-gray-50 { background-color: #111827 !important; }
+html.dark:not(.roomfit-light) .bg-gray-100 { background-color: #1f2937 !important; }
+html.dark:not(.roomfit-light) .bg-gray-200 { background-color: #374151 !important; }
+
+html.dark:not(.roomfit-light) .text-gray-800 { color: #f3f4f6 !important; }
+html.dark:not(.roomfit-light) .text-gray-700 { color: #d1d5db !important; }
+html.dark:not(.roomfit-light) .text-gray-600 { color: #d1d5db !important; }
+html.dark:not(.roomfit-light) .text-gray-500 { color: #9ca3af !important; }
+html.dark:not(.roomfit-light) .text-gray-400 { color: #9ca3af !important; }
+html.dark:not(.roomfit-light) .text-gray-300 { color: #d1d5db !important; }
+
+html.dark:not(.roomfit-light) .text-slate-800 { color: #e2e8f0 !important; }
+html.dark:not(.roomfit-light) .text-slate-700 { color: #cbd5e1 !important; }
+
+html.dark:not(.roomfit-light) .border-gray-200 { border-color: #374151 !important; }
+html.dark:not(.roomfit-light) .border-gray-300 { border-color: #4b5563 !important; }
+html.dark:not(.roomfit-light) .border-gray-100 { border-color: #374151 !important; }
+
+html.dark:not(.roomfit-light) .divide-gray-200 > :not(:last-child) { border-color: #374151 !important; }
+html.dark:not(.roomfit-light) .divide-gray-100 > :not(:last-child) { border-color: #374151 !important; }
+
+/* Inputs and form elements */
+html.dark:not(.roomfit-light) input, html.dark:not(.roomfit-light) textarea, html.dark:not(.roomfit-light) select {
+  background-color: #374151;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+html.dark:not(.roomfit-light) input::placeholder, html.dark:not(.roomfit-light) textarea::placeholder {
+  color: #6b7280;
+}
+
+/* Hover states */
+html.dark:not(.roomfit-light) .hover\:bg-gray-50:hover { background-color: #374151 !important; }
+html.dark:not(.roomfit-light) .hover\:bg-gray-100:hover { background-color: #374151 !important; }
+
+/* Sidebar and panels */
+html.dark:not(.roomfit-light) .bg-slate-50 { background-color: #1e293b !important; }
+html.dark:not(.roomfit-light) .bg-slate-100 { background-color: #1e293b !important; }
+html.dark:not(.roomfit-light) .border-slate-200 { border-color: #334155 !important; }
+
+/* Scroll bars */
+html.dark:not(.roomfit-light) ::-webkit-scrollbar-track { background: #1f2937; }
+html.dark:not(.roomfit-light) ::-webkit-scrollbar-thumb { background: #4b5563; }
+
+/* Context menus and dropdowns */
+html.dark:not(.roomfit-light) .shadow-xl { --tw-shadow-color: rgba(0,0,0,0.5); }
+html.dark:not(.roomfit-light) .shadow-2xl { --tw-shadow-color: rgba(0,0,0,0.6); }
+
+/* Kbd elements */
+html.dark:not(.roomfit-light) kbd {
+  background-color: #374151 !important;
+  border-color: #4b5563 !important;
+  color: #d1d5db !important;
+}
+
+/* Checkboxes / toggle switches */
+html.dark:not(.roomfit-light) .bg-gray-300 { background-color: #4b5563 !important; }
+
+/* Min-h-screen backgrounds */
+html.dark:not(.roomfit-light) .min-h-screen.bg-gray-50 { background-color: #111827 !important; }
+
+/* Blue accent states in dark mode */
+html.dark:not(.roomfit-light) .bg-blue-50 { background-color: #1e3a5f !important; }
+html.dark:not(.roomfit-light) .bg-blue-100 { background-color: #1e3a5f !important; }
+html.dark:not(.roomfit-light) .text-blue-500 { color: #60a5fa !important; }
+html.dark:not(.roomfit-light) .text-blue-600 { color: #60a5fa !important; }
+html.dark:not(.roomfit-light) .ring-blue-200 { --tw-ring-color: #1e40af !important; }
+html.dark:not(.roomfit-light) .border-blue-300 { border-color: #2563eb !important; }
+html.dark:not(.roomfit-light) .border-blue-400 { border-color: #3b82f6 !important; }
+
+/* Red states */
+html.dark:not(.roomfit-light) .bg-red-50 { background-color: #451a1a !important; }
+html.dark:not(.roomfit-light) .text-red-500 { color: #f87171 !important; }
+html.dark:not(.roomfit-light) .hover\:bg-red-50:hover { background-color: #451a1a !important; }
+
+/* Gradient header - already dark, but ensure consistency */
+html.dark:not(.roomfit-light) .bg-gradient-to-r.from-slate-800.to-slate-700 {
+  background: linear-gradient(to right, #0f172a, #1e293b) !important;
+}
+
+/* Backdrop blur panels */
+html.dark:not(.roomfit-light) .bg-white\/90 { background-color: rgba(31, 41, 55, 0.9) !important; }
+html.dark:not(.roomfit-light) .backdrop-blur { backdrop-filter: blur(8px); }
+
+/* Status bar / bottom bar */
+html.dark:not(.roomfit-light) .bg-slate-700 { background-color: #1e293b !important; }
+html.dark:not(.roomfit-light) .bg-slate-800 { background-color: #0f172a !important; }
+
+/* Purple/rose section headers */
+html.dark:not(.roomfit-light) .text-purple-500 { color: #a78bfa !important; }
+html.dark:not(.roomfit-light) .text-rose-500 { color: #fb7185 !important; }
+html.dark:not(.roomfit-light) .bg-purple-100 { background-color: #2e1065 !important; }
+html.dark:not(.roomfit-light) .bg-rose-100 { background-color: #4c0519 !important; }
+
+/* Template modal */
+html.dark:not(.roomfit-light) .hover\:border-blue-400:hover { border-color: #3b82f6 !important; }
+html.dark:not(.roomfit-light) .hover\:bg-blue-50:hover { background-color: #1e3a5f !important; }
+html.dark:not(.roomfit-light) .bg-blue-50 { background-color: #1e3a5f !important; }
+
+/* Full-viewport native modal surfaces retain each dialog's existing card layout. */
+dialog.modal-overlay {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+}
+dialog.modal-overlay::backdrop { background: transparent; }
+
+/* ── Print styles ─────────────────────────────────────────────── */
+@media print {
+  body * { visibility: hidden !important; }
+  .print-page, .print-page * { visibility: visible !important; }
+  .print-overlay-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: visible !important;
+    background: none !important;
+  }
+  .print-hide { display: none !important; }
+  .print-page {
+    margin: 0 !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+}

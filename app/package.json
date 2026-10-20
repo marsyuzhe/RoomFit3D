@@ -1,0 +1,147 @@
+{
+  "name": "roomfit3d",
+  "private": true,
+  "version": "0.2.0",
+  "description": "RoomFit 3D local-first precision home designer",
+  "author": "Links Tam",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/prepare-pdf-assets.mjs",
+    "dev": "vite dev",
+    "build": "node scripts/build.mjs",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "test:watch": "vitest",
+    "benchmark:viewer": "playwright test --config=playwright.benchmark.config.ts",
+    "benchmark:fixtures": "node tooling/render-fixtures.mjs",
+    "catalog:manifest": "node tooling/catalog-manifest.mjs",
+    "catalog:check": "node tooling/catalog-manifest.mjs --check",
+    "build:render-lab": "vite build --config tooling/render-lab-site/vite.config.ts",
+    "desktop": "electron .",
+    "desktop:pack": "node scripts/package.mjs",
+    "test:roomfit": "vitest run tests/roomfit --maxWorkers=2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@sveltejs/adapter-auto": "^7.0.0",
+    "@sveltejs/adapter-node": "^5.5.7",
+    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/three": "^0.182.0",
+    "electron": "^42.0.0",
+    "electron-builder": "^26.0.12",
+    "fake-indexeddb": "^6.2.5",
+    "firebase": "^12.18.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-svelte": "^4.1.1",
+    "svelte": "^5.57.0",
+    "svelte-check": "^4.3.6",
+    "tailwindcss": "^4.1.18",
+    "three": "^0.182.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "vitest": "^5.0.0"
+  },
+  "dependencies": {
+    "dxf-writer": "^1.18.4",
+    "google-auth-library": "11.0.2",
+    "jspdf": "^4.2.1",
+    "jszip": "^3.10.1",
+    "pdfjs-dist": "6.4.299",
+    "polygon-clipping": "^0.15.7",
+    "svg-pathdata": "6.0.3",
+    "tesseract.js": "7.0.0",
+    "three-gpu-pathtracer": "0.0.24",
+    "three-mesh-bvh": "0.9.10",
+    "zod": "^4.0.0"
+  },
+  "overrides": {
+    "@sveltejs/kit": {
+      "cookie": "^0.7.2"
+    },
+    "@grpc/grpc-js": "^1.14.6"
+  },
+  "main": "desktop/main.cjs",
+  "build": {
+    "appId": "com.linkstam.roomfit3d",
+    "productName": "RoomFit 3D",
+    "copyright": "Copyright 2026 Links Tam",
+    "directories": {
+      "output": "../dist"
+    },
+    "files": [
+      "build/**/*",
+      "desktop/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../samples",
+        "to": "samples"
+      },
+      {
+        "from": "../assets/licenses",
+        "to": "licenses"
+      },
+      {
+        "from": "../docs/THIRD_PARTY_LICENSES.md",
+        "to": "THIRD_PARTY_LICENSES.md"
+      },
+      {
+        "from": "LICENSE",
+        "to": "openPlan3D-LICENSE.txt"
+      },
+      {
+        "from": "static/models/furniture-kit-License.txt",
+        "to": "licenses/furniture-kit-License.txt"
+      },
+      {
+        "from": "static/models/nature-kit-License.txt",
+        "to": "licenses/nature-kit-License.txt"
+      },
+      {
+        "from": "static/textures/CREDITS.md",
+        "to": "licenses/texture-credits.md"
+      },
+      {
+        "from": "rendering",
+        "to": "rendering"
+      },
+      {
+        "from": "../docs/V020_USER_GUIDE.zh-CN.md",
+        "to": "USER_GUIDE.zh-CN.md"
+      },
+      {
+        "from": "../docs/FURNITURE_LICENSES.md",
+        "to": "licenses/FURNITURE_LICENSES.md"
+      },
+      {
+        "from": "../docs/ASSET_SOURCES.md",
+        "to": "licenses/ASSET_SOURCES.md"
+      },
+      {
+        "from": "../LICENSE",
+        "to": "RoomFit-LICENSE.txt"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "desktop/roomfit.ico",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "installerIcon": "desktop/roomfit.ico",
+      "uninstallerIcon": "desktop/roomfit.ico"
+    },
+    "electronDist": "node_modules/electron/dist"
+  }
+}
