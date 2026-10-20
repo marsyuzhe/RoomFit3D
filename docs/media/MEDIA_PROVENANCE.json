@@ -1,0 +1,128 @@
+{
+  "author": "Links Tam",
+  "date": "2026-10-20",
+  "license": "MIT for authored branding/layouts; inherited contents retain third-party notices",
+  "records": [
+    {
+      "file": "renders/gaming-day.png",
+      "kind": "actual Blender Cycles output",
+      "sha256": "9dece871c7cd2cea5688af6d0ec255566432921ec09ae838c53f8f6192662246",
+      "source": "RoomFit 3D 0.2.0 authored example layout",
+      "qa": {
+        "passed": true,
+        "resolution": [
+          1280,
+          720
+        ]
+      },
+      "note": "Existing version 0.2.0 real render, not regenerated for the marketing layout. Not a photograph or surveyed home."
+    },
+    {
+      "file": "renders/gaming-rgb-night.png",
+      "kind": "actual Blender Cycles output",
+      "sha256": "c6da1d18e8c14bcc59f970e08621e42a9e1fd86b57837599e647e63c836398bf",
+      "source": "RoomFit 3D 0.2.0 authored example layout",
+      "qa": {
+        "passed": true,
+        "resolution": [
+          1280,
+          720
+        ]
+      },
+      "note": "Existing version 0.2.0 real render, not regenerated for the marketing layout. Not a photograph or surveyed home."
+    },
+    {
+      "file": "renders/nordic-bedroom.png",
+      "kind": "actual Blender Cycles output",
+      "sha256": "701560c91c3c524d5e3cb46ac4d34ec39b16b7fd48946b51e6ed1131fa2deb16",
+      "source": "RoomFit 3D 0.2.0 authored example layout",
+      "qa": {
+        "passed": true,
+        "resolution": [
+          1280,
+          720
+        ]
+      },
+      "note": "Existing version 0.2.0 real render, not regenerated for the marketing layout. Not a photograph or surveyed home."
+    },
+    {
+      "file": "renders/minimal-living.png",
+      "kind": "actual Blender Cycles output",
+      "sha256": "dc61c6f12d0545c92aecceb335fab7bc70941ac4849b2c1568f0b69464fa0b5d",
+      "source": "RoomFit 3D 0.2.0 authored example layout",
+      "qa": {
+        "passed": true,
+        "resolution": [
+          1280,
+          720
+        ]
+      },
+      "note": "Existing version 0.2.0 real render, not regenerated for the marketing layout. Not a photograph or surveyed home."
+    },
+    {
+      "file": "screenshots/furniture-3d.png",
+      "kind": "actual runtime screenshot",
+      "sha256": "c8aafb93ea12d38257dda8feab35aa0b9434d4f5ece6c17e3ab3ab813a007b09",
+      "source": "Independent public copy production build, browser automation, fresh local session; no private user profile",
+      "note": "Captured through visible application controls; no conceptual/mock UI."
+    },
+    {
+      "file": "screenshots/gaming-3d.png",
+      "kind": "actual runtime screenshot",
+      "sha256": "b90351a4f93e32e9cb00af1999d2aed212667da10fe64908deea6b28a0ef83dc",
+      "source": "Independent public copy production build, browser automation, fresh local session; no private user profile",
+      "note": "Captured through visible application controls; no conceptual/mock UI."
+    },
+    {
+      "file": "screenshots/home-en.png",
+      "kind": "actual runtime screenshot",
+      "sha256": "b649b4164f8198c424976f2e633702b557dce3cf5efa349fb092a0cfe84ddf85",
+      "source": "Independent public copy production build, browser automation, fresh local session; no private user profile",
+      "note": "Captured through visible application controls; no conceptual/mock UI."
+    },
+    {
+      "file": "screenshots/home-zh.png",
+      "kind": "actual runtime screenshot",
+      "sha256": "e222eac2e15e7a2d6e292ae9d59e339e9978b4328d314e214fdf2910068a4967",
+      "source": "Independent public copy production build, browser automation, fresh local session; no private user profile",
+      "note": "Captured through visible application controls; no conceptual/mock UI."
+    },
+    {
+      "file": "screenshots/plan-2d.png",
+      "kind": "actual runtime screenshot",
+      "sha256": "0be293e3b902f6ac123eb93ca56ef4d457011bca2bfac8cb904925ca5177e2a9",
+      "source": "Independent public copy production build, browser automation, fresh local session; no private user profile",
+      "note": "Captured through visible application controls; no conceptual/mock UI."
+    },
+    {
+      "file": "github-hero-en.png",
+      "kind": "promotional layout",
+      "sha256": "b6321244ef398dd088ae45eed16a413a9e5f81e06fba19691e6be80c294de165",
+      "note": "Deterministic SVG/HTML export by Links Tam; images within layouts come from the listed actual screenshots and renders."
+    },
+    {
+      "file": "github-hero-zh.png",
+      "kind": "promotional layout",
+      "sha256": "263ecd46f2367f3c326dba1fcb4c12a33f7ff35051fcb0080c68a49ca0f88e51",
+      "note": "Deterministic SVG/HTML export by Links Tam; images within layouts come from the listed actual screenshots and renders."
+    },
+    {
+      "file": "roomfit-icon-1024.png",
+      "kind": "authored icon export",
+      "sha256": "10c07eebf32647716cab490e3349448892902bc49a9d1bef76af499dbd9397f7",
+      "note": "Deterministic SVG/HTML export by Links Tam; images within layouts come from the listed actual screenshots and renders."
+    },
+    {
+      "file": "social-preview-en.png",
+      "kind": "promotional layout",
+      "sha256": "56d8e260cbd5268ee04b3b3b3ccd2ffc913e8b289a3c09eb212c75a78789d504",
+      "note": "Deterministic SVG/HTML export by Links Tam; images within layouts come from the listed actual screenshots and renders."
+    },
+    {
+      "file": "social-preview-zh.png",
+      "kind": "promotional layout",
+      "sha256": "ca06c90e6f89c1c82957ccf7fb4e06e8f9ab7515b94b0dec15a075e840992794",
+      "note": "Deterministic SVG/HTML export by Links Tam; images within layouts come from the listed actual screenshots and renders."
+    }
+  ]
+}

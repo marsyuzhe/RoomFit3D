@@ -1,0 +1,257 @@
+{
+  "schema": "RoomFit3D",
+  "version": 3,
+  "units": "mm",
+  "coordinates": "RH-Y-up-X-right-Z-plan-down",
+  "id": "sample-0",
+  "name": "L 形客餐厅",
+  "author": "Links Tam",
+  "createdAt": "2026-10-19T12:00:00.000Z",
+  "modifiedAt": "2026-10-19T12:00:00.000Z",
+  "dimensionConfidence": "confirmed",
+  "rooms": [
+    {
+      "id": "sample-1",
+      "name": "卧室",
+      "polygon": [
+        {
+          "x": 0,
+          "z": 0
+        },
+        {
+          "x": 6000,
+          "z": 0
+        },
+        {
+          "x": 6000,
+          "z": 2750
+        },
+        {
+          "x": 3600,
+          "z": 2750
+        },
+        {
+          "x": 3600,
+          "z": 5000
+        },
+        {
+          "x": 0,
+          "z": 5000
+        }
+      ],
+      "height": 2800,
+      "confidence": "confirmed"
+    }
+  ],
+  "walls": [
+    {
+      "id": "sample-2",
+      "start": {
+        "x": -60,
+        "z": -60
+      },
+      "end": {
+        "x": 6060,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "sample-3",
+      "start": {
+        "x": 6060,
+        "z": -60
+      },
+      "end": {
+        "x": 6060,
+        "z": 2810
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "sample-4",
+      "start": {
+        "x": 6060,
+        "z": 2810
+      },
+      "end": {
+        "x": 3660,
+        "z": 2810
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "sample-5",
+      "start": {
+        "x": 3660,
+        "z": 2810
+      },
+      "end": {
+        "x": 3660,
+        "z": 5060
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "sample-6",
+      "start": {
+        "x": 3660,
+        "z": 5060
+      },
+      "end": {
+        "x": -60,
+        "z": 5060
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    },
+    {
+      "id": "sample-7",
+      "start": {
+        "x": -60,
+        "z": 5060
+      },
+      "end": {
+        "x": -60,
+        "z": -60
+      },
+      "thickness": 120,
+      "height": 2800,
+      "color": "#eeeae2",
+      "locked": false
+    }
+  ],
+  "openings": [
+    {
+      "id": "sample-8",
+      "wallId": "sample-4",
+      "kind": "door",
+      "offset": 650,
+      "width": 850,
+      "height": 2100,
+      "sill": 0,
+      "swing": "left"
+    },
+    {
+      "id": "sample-9",
+      "wallId": "sample-2",
+      "kind": "window",
+      "offset": 3060,
+      "width": 1600,
+      "height": 1450,
+      "sill": 850,
+      "swing": "left"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "sample-10",
+      "name": "沙发",
+      "catalogId": "sofa",
+      "width": 2200,
+      "depth": 950,
+      "height": 850,
+      "x": 1800,
+      "y": 0,
+      "z": 850,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "sample-11",
+      "name": "茶几",
+      "catalogId": "coffee_table",
+      "width": 1200,
+      "depth": 600,
+      "height": 420,
+      "x": 1800,
+      "y": 0,
+      "z": 1900,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    },
+    {
+      "id": "sample-12",
+      "name": "餐桌",
+      "catalogId": "dining_table",
+      "width": 1500,
+      "depth": 850,
+      "height": 750,
+      "x": 1800,
+      "y": 0,
+      "z": 3700,
+      "rotation": 0,
+      "color": "#b9a58c",
+      "confidence": "estimated",
+      "locked": false,
+      "brand": "",
+      "model": "",
+      "sourceUrl": ""
+    }
+  ],
+  "materials": {
+    "floor": {
+      "color": "#ac8155",
+      "roughness": 0.48,
+      "metalness": 0,
+      "kind": "wood",
+      "tileMm": 600
+    },
+    "wall": {
+      "color": "#eeeae2",
+      "roughness": 0.82,
+      "metalness": 0,
+      "kind": "paint",
+      "tileMm": 600
+    }
+  },
+  "camera": {
+    "position": [
+      5640,
+      1550,
+      4700
+    ],
+    "target": [
+      2400,
+      950,
+      1200
+    ],
+    "fov": 62
+  },
+  "render": {
+    "preset": "day",
+    "width": 1920,
+    "height": 1080,
+    "samples": 64,
+    "exposure": 0
+  },
+  "clearanceTarget": 600,
+  "assets": {},
+  "notes": [
+    "日照为示意照明，未进行地理方位分析。"
+  ]
+}
