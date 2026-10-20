@@ -1,0 +1,12 @@
+import {expect,it} from 'vitest';
+import {writeFileSync} from 'node:fs';
+import {templateScene,templates} from '../../src/lib/roomfit/templates';
+import {readScene} from '../../src/lib/roomfit/scene';
+import {encodeScene,decodeScene} from '../../src/lib/roomfit/storage';
+import {renderManifest} from '../../src/lib/roomfit/buildScene';
+import {analyze} from '../../src/lib/roomfit/geometry';
+import {toOpenPlan,fromOpenPlan} from '../../src/lib/roomfit/openplanAdapter';
+import {dimensionCandidate} from '../../src/lib/roomfit/ocr';
+it('all twelve templates are real editable scenes with shared render geometry',()=>{expect(templates).toHaveLength(12);expect(templates.filter(t=>t.gaming)).toHaveLength(6);const reports=[];for(const t of templates){const s=templateScene(t.id);expect(readScene(s)).toEqual(s);expect(s.openings.length).toBeGreaterThan(1);expect(s.furniture.length).toBeGreaterThan(3);expect(analyze(s).filter(f=>f.severity==='error').map(f=>f.message),t.id).toEqual([]);const loaded=decodeScene(encodeScene(s));expect(loaded).toEqual(s);const manifest=renderManifest(s);expect(manifest.meshes.length).toBeGreaterThan(s.furniture.length*3);expect(manifest.meshes.every(m=>m.vertices.every(p=>p.every(Number.isFinite)))).toBe(true);reports.push({id:t.id,items:s.furniture.length,meshes:manifest.meshes.length,lights:manifest.lights.length,findings:analyze(s)});writeFileSync(`../samples/V020-${t.id}.roomfit`,encodeScene(s));}writeFileSync('../evidence/v020-template-audit.json',JSON.stringify(reports,null,2));});
+it('preserves supports, RGB parameters and structural modules through the centimetre editor',()=>{const s=templateScene('gaming-nordic'),next=fromOpenPlan(toOpenPlan(s),s);for(const f of s.furniture){const n=next.furniture.find(n=>n.id===f.id)!;expect(n.light).toEqual(f.light);expect(n.support).toEqual(f.support);expect(n.modules).toEqual(f.modules);}const manifest=renderManifest(next);expect(manifest.lights.length).toBeGreaterThan(0);expect(manifest.meshes.some(m=>m.material.emissionStrength>0)).toBe(true);});
+it('keeps bare OCR numbers uncertain and interprets explicit units',()=>{const b={x0:1,y0:2,x1:50,y1:20};expect(dimensionCandidate('4000',90,b)?.mm).toBeNull();expect(dimensionCandidate('3.6m',90,b)?.mm).toBe(3600);expect(dimensionCandidate('360 cm',90,b)?.mm).toBe(3600);expect(dimensionCandidate('room',90,b)).toBeNull();});
