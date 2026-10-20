@@ -1,0 +1,278 @@
+import { test, expect, type Page } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { readPackageZip, packageJSON } from '../../src/lib/utils/projectPackageZip';
+import { savedProjects, storedRecords } from './storage';
+
+const fixture = resolve('tests/fixtures/native-project-package.zip');
+async function choose(page: Page, path = fixture) {
+  const pending = page.waitForEvent('filechooser');
+  await page.getByRole('button', { name: 'Choose project package', exact: true }).click();
+  await (await pending).setFiles(path);
+}
+function observe(page: Page) {
+  const errors: string[] = [], external: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('request', request => { if (/^https?:/.test(request.url()) && new URL(request.url()).origin !== 'http://127.0.0.1:4188') external.push(request.url()); });
+  return () => { expect(errors).toEqual([]); expect(external).toEqual([]); };
+}
+async function packageDownload(page: Page) {
+  await page.getByRole('button', { name: 'Export', exact: true }).click();
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Download project package', exact: true }).click();
+  const path = (await (await pending).path())!;
+  return readPackageZip(new Uint8Array(await readFile(path)));
+}
+
+for (const width of [1440, 390]) test(`furniture category previews and original identities survive local editing at ${width}px`, async ({ page }, testInfo) => {
+  test.slow();
+  await page.setViewportSize({ width, height: 900 });
+  const check = observe(page), models: string[] = [];
+  page.on('request', request => { if (/\.glb$/.test(request.url())) models.push(request.url()); });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Import a project package', exact: true }).click();
+  await choose(page, resolve('tests/fixtures/native-categories-package.zip'));
+  await page.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(page.getByRole('dialog').getByRole('status')).toContainText('Project imported.');
+  await page.getByRole('button', { name: 'Done', exact: true }).click();
+  await page.getByRole('link', { name: 'QA Furniture Categories (Imported copy)', exact: true }).click();
+  await page.getByRole('button', { name: 'Save', exact: true }).press('l');
+  for (const name of ['🛏️ Queen Bed', '🧊 Fridge', '🪥 Sink', '🪜 Imported stairs', '📦 Unrecognized item']) {
+    await expect(page.getByRole('button', { name, exact: true })).toBeVisible();
+  }
+  await page.getByRole('button', { name: '📦 Unrecognized item', exact: true }).click();
+  await expect(page.getByText('Original category: future-appliance. Shown as a neutral box.', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: '🛏️ Queen Bed', exact: true }).click();
+  const field = page.getByRole('spinbutton', { name: 'Width (cm)', exact: true });
+  await expect(field).toHaveValue('160.125');
+  await field.fill('137.875'); await field.press('Tab');
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect.poll(async () => Object.values(await savedProjects(page))[0].floors[0].furniture[2].width).toBe(137.875);
+  expect(models).toEqual([]);
+  await page.reload();
+  const files = await packageDownload(page), plan = packageJSON(files['plan.json']);
+  expect(plan.furniture.map((f: any) => f.category)).toEqual(['sofa', 'stairs', 'bed', 'refrigerator', 'sink', 'washerDryer', 'washerdryer', 'future-appliance']);
+  expect(plan.furniture[2]).toMatchObject({ width: 1.37875, note: 'Keep category notes', price: 12.345, future: { retain: 2 } });
+  await page.getByRole('button', { name: '3D', exact: true }).click();
+  await expect(page.getByRole('region', { name: '3D floor plan viewer' }).locator('canvas').first()).toBeVisible({ timeout: 60_000 });
+  await page.waitForLoadState('networkidle');
+  for (const file of ['loungeDesignSofa', 'bedDouble', 'kitchenFridgeLarge', 'bathroomSink', 'washerDryerStacked']) {
+    expect(models.filter(url => url.includes(`/${file}.`))).toHaveLength(1);
+  }
+  expect(models).toHaveLength(5);
+  await testInfo.attach(`category-previews-${width}`, { body: await page.screenshot(), contentType: 'image/png' });
+  check();
+});
+
+test('actual native category return keeps web catalog IDs and mirrored footprints in the browser', async ({ page }) => {
+  const check = observe(page);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Import a project package', exact: true }).click();
+  await choose(page, resolve('tests/fixtures/swift-web-categories-return.zip'));
+  await page.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(page.getByRole('dialog').getByRole('status')).toContainText('Project imported.');
+  const project = Object.values(await savedProjects(page))[0], item = project.floors[0].furniture[0];
+  expect(item).toMatchObject({ catalogId: 'bed_queen', width: 105, height: 94.625, scale: { x: -1.25, y: 1.125, z: 1 }, color: '#245678', details: { note: 'Native category edit' } });
+  check();
+});
+for (const width of [1440, 390]) test(`native package preview/import/edit/reload/export remains local at ${width}px`, async ({ page }, testInfo) => {
+  test.slow();
+  await page.setViewportSize({ width, height: 900 });
+  const check = observe(page);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Import a project package', exact: true }).click();
+  const dialog = page.getByRole('dialog', { name: 'Import project package', exact: true });
+  const before = await storedRecords(page);
+  await choose(page);
+  await expect(dialog).toContainText('QA Project Package');
+  await expect(dialog).toContainText('3 floors · 5 walls · 2 attachment files');
+  await expect(dialog).toContainText('Photos, item notes and costs travel with this package and can be edited in Item details.');
+  expect(await storedRecords(page)).toEqual(before);
+  await testInfo.attach(`package-preview-${width}`, { body: await page.screenshot(), contentType: 'image/png' });
+  await dialog.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(dialog.getByRole('status')).toContainText('Project imported.');
+  await dialog.getByRole('button', { name: 'Done', exact: true }).click();
+  await page.getByRole('link', { name: 'QA Project Package (Imported copy)', exact: true }).click();
+  await page.getByRole('button', { name: 'Save', exact: true }).press('l');
+  await page.getByRole('button', { name: '─ Wall 1', exact: true }).click();
+  await expect(page.getByRole('spinbutton', { name: 'Thickness (cm)', exact: true })).toHaveValue('27.5');
+  await page.getByRole('spinbutton', { name: 'Thickness (cm)', exact: true }).fill('33.75');
+  await page.getByRole('spinbutton', { name: 'Thickness (cm)', exact: true }).press('Tab');
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect.poll(async () => Object.values(await savedProjects(page))[0].floors[0].walls[0].thickness).toBe(33.75);
+  await page.reload();
+  const files = await packageDownload(page), native = packageJSON(files['plan.json']);
+  expect(native.walls[0].thickness).toBe(0.3375);
+  expect(native.walls[0].extension.future).toBe(true);
+  expect(native.furniture[0].price).toBe(456.75);
+  expect(native.furniture[0].note).toBe('Keep furniture note');
+  expect(native.notes[0].text).toBe('Pinned note');
+  const original = readPackageZip(new Uint8Array(await readFile(fixture)));
+  expect(files['assets/chair.png']).toEqual(original['assets/chair.png']);
+  expect(files['assets/orphan.png']).toEqual(original['assets/orphan.png']);
+  await page.getByRole('button', { name: '3D', exact: true }).click();
+  await expect(page.getByRole('region', { name: '3D floor plan viewer' }).locator('canvas').first()).toBeVisible({ timeout: 60_000 });
+  check();
+});
+test('actual Swift return package restores web-only details and Swift edits', async ({ page }) => {
+  const check = observe(page);
+  await page.goto('/'); await page.getByRole('button', { name: 'Import a project package', exact: true }).click();
+  await choose(page, resolve('tests/fixtures/swift-return-project-package.zip'));
+  await page.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(page.getByRole('dialog').getByRole('status')).toContainText('Project imported.');
+  const project = Object.values(await savedProjects(page))[0];
+  expect(project.floors[0].walls[0]).toMatchObject({ thickness: 37.25, startHeight: 273.5, endHeight: 123.75 });
+  expect(project.floors[0].furniture[0]).toMatchObject({ width: 78.75, scale: { x: -2, y: 1.5, z: 1 } });
+  expect(project.floors[0].elevation).toBe(47.25);
+  expect(project.floors[0].textAnnotations[0].text).toBe('Edited in Swift');
+  check();
+});
+test('package cancellation, invalid file and quota retry preserve the existing library', async ({ page, context }) => {
+  await context.addInitScript(() => localStorage.setItem('hasSeenWelcome', 'true'));
+  const check = observe(page);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'New Project', exact: true }).click();
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await page.getByRole('link', { name: 'Projects', exact: true }).click();
+  const before = await storedRecords(page);
+  await page.getByRole('button', { name: 'Import project package', exact: true }).click();
+  await choose(page); await expect(page.getByRole('dialog')).toContainText('QA Project Package');
+  await page.getByRole('button', { name: 'Cancel', exact: true }).click();
+  expect(await storedRecords(page)).toEqual(before);
+  await page.getByRole('button', { name: 'Import project package', exact: true }).click();
+  await choose(page, resolve('tests/fixtures/library-backup.json'));
+  await expect(page.getByRole('alert')).toContainText('Invalid project package');
+  expect(await storedRecords(page)).toEqual(before);
+  await choose(page);
+  await page.evaluate(() => {
+    (window as any).packageQuota = true;
+    const add = IDBObjectStore.prototype.add;
+    IDBObjectStore.prototype.add = function(...args) {
+      if (this.name === 'projects' && (window as any).packageQuota) throw new DOMException('Full', 'QuotaExceededError');
+      return add.apply(this, args);
+    };
+  });
+  await page.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(page.getByRole('alert')).toContainText('Nothing was imported.');
+  expect(await storedRecords(page)).toEqual(before);
+  await page.evaluate(() => { (window as any).packageQuota = false; });
+  await page.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(page.getByRole('dialog').getByRole('status')).toContainText('Project imported.');
+  expect(Object.keys(await storedRecords(page))).toHaveLength(Object.keys(before).length + 1);
+  check();
+});
+
+test('the editor imports a project package from the Export menu and opens the copy', async ({ page }) => {
+  const check = observe(page);
+  await page.goto('/editor');
+  await expect(page.getByRole('button', { name: 'Save', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Export', exact: true }).click();
+  await page.getByRole('button', { name: 'Import project package', exact: true }).click();
+  const dialog = page.getByRole('dialog', { name: 'Import project package', exact: true });
+  await choose(page);
+  await expect(dialog).toContainText('3 floors · 5 walls · 2 attachment files');
+  await dialog.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(dialog).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'QA Project Package (Imported copy)', exact: true })).toBeVisible();
+  const projects = await savedProjects(page);
+  const imported = Object.values(projects).find(project => project.name === 'QA Project Package (Imported copy)');
+  expect(imported).toBeTruthy();
+  expect(Object.keys(projects)).toHaveLength(2);
+  await expect(page).toHaveURL(new RegExp(`/editor\\?id=${imported.id}$`));
+  await expect(page.getByRole('combobox', { name: 'Current floor', exact: true }).locator('option')).toHaveCount(3);
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'QA Project Package (Imported copy)', exact: true })).toBeVisible();
+  check();
+});
+
+test('slab thickness edits reach the native package in metres', async ({ page }) => {
+  const check = observe(page);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Import a project package', exact: true }).click();
+  await choose(page);
+  await page.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(page.getByRole('dialog').getByRole('status')).toContainText('Project imported.');
+  await page.getByRole('button', { name: 'Done', exact: true }).click();
+  await page.getByRole('link', { name: 'QA Project Package (Imported copy)', exact: true }).click();
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  const depth = page.getByRole('spinbutton', { name: 'Entry slab thickness (cm)', exact: true });
+  await expect(depth).toHaveValue('10');
+  await depth.fill('32.5'); await depth.press('Tab');
+  await page.getByRole('button', { name: 'Close settings', exact: true }).click();
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  const elevation = page.getByRole('spinbutton', { name: 'Entry elevation (cm)', exact: true });
+  await elevation.fill('-52.5'); await elevation.press('Tab');
+  await page.getByRole('button', { name: 'Close settings', exact: true }).click();
+  const files = await packageDownload(page), plan = packageJSON(files['plan.json']);
+  expect(plan.levels[0].elevation).toBe(-.525);
+  expect(plan.levels[0].slabThickness).toBe(.325);
+  expect(plan.levels[1]).not.toHaveProperty('slabThickness');
+  check();
+});
+
+for (const owned of [false, true]) test(`actual native ${owned ? 'floor-owned' : 'rotated'} underlay return keeps its visible orientation and original bytes`, async ({ page }, testInfo) => {
+  // Import, editor rendering, package download and screenshot share this budget.
+  test.slow();
+  const check = observe(page);
+  await page.addInitScript(() => {
+    const clear = CanvasRenderingContext2D.prototype.clearRect;
+    CanvasRenderingContext2D.prototype.clearRect = function(...args: Parameters<typeof clear>) {
+      if (this.canvas.getAttribute('aria-label') === 'Floor plan editor canvas') {
+        (window as any).__underlayDraw = undefined;
+        (window as any).__underlayFrame = ((window as any).__underlayFrame ?? 0) + 1;
+      }
+      return clear.apply(this, args);
+    };
+    const draw = CanvasRenderingContext2D.prototype.drawImage;
+    CanvasRenderingContext2D.prototype.drawImage = function(...args: any[]) {
+      const image = args[0];
+      if (this.canvas.getAttribute('aria-label') === 'Floor plan editor canvas' && image.width === 200 && image.height === 100) {
+        const m = this.getTransform();
+        (window as any).__underlayDraw = { a: m.a, b: m.b, x: m.e, y: m.f, width: args[3] };
+      }
+      return (draw as any).apply(this, args);
+    };
+  });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Import a project package', exact: true }).click();
+  await choose(page, resolve(`tests/fixtures/native-return-${owned ? 'floor-owned' : 'rotated'}-underlay.zip`));
+  await page.getByRole('button', { name: 'Import as copy', exact: true }).click();
+  await expect(page.getByRole('dialog').getByRole('status')).toContainText('Project imported.');
+  await page.getByRole('button', { name: 'Done', exact: true }).click();
+  await page.getByRole('link', { name: owned ? 'QA Floor-Owned Trace (Imported copy) (Imported copy)' : 'QA Rotated Underlay (Imported copy) (Imported copy)', exact: true }).click();
+  if (owned) {
+    await expect.poll(() => page.evaluate(() => (window as any).__underlayFrame ?? 0)).toBeGreaterThan(0);
+    expect(await page.evaluate(() => (window as any).__underlayDraw)).toBeUndefined();
+    await page.getByRole('combobox', { name: 'Current floor', exact: true }).selectOption({ label: 'Trace Floor' });
+  }
+  await expect.poll(() => page.evaluate(() => Boolean((window as any).__underlayDraw))).toBe(true);
+  // Image loading and initial fit can produce an earlier, offscreen draw.
+  // Sample the current frame until orientation and visible colors agree.
+  await expect.poll(() => page.evaluate(() => {
+    const p = (window as any).__underlayDraw;
+    if (!p) return { angle: false, redAbove: false, blueBelow: false };
+    const canvas = document.querySelector<HTMLCanvasElement>('[aria-label="Floor plan editor canvas"]')!;
+    const ctx = canvas.getContext('2d')!;
+    const offset = p.width * Math.hypot(p.a, p.b) / 8;
+    // The lower sample is outside the room fill, which overlays the underlay.
+    const top = ctx.getImageData(Math.round(p.x), Math.round(p.y - offset), 1, 1).data;
+    const bottom = ctx.getImageData(Math.round(p.x), Math.round(p.y + 3 * offset), 1, 1).data;
+    // Firefox exposes the canvas transform at float32 precision.
+    return { angle: Math.abs(Math.atan2(p.b, p.a) - Math.PI / 2) < 0.0000005, redAbove: top[0] - top[2] > 50, blueBelow: bottom[2] - bottom[0] > 50 };
+  })).toEqual({ angle: true, redAbove: true, blueBelow: true });
+  if (owned) {
+    const before = await page.evaluate(() => (window as any).__underlayFrame);
+    await page.getByRole('combobox', { name: 'Current floor', exact: true }).selectOption({ label: 'Ground Floor' });
+    await expect.poll(() => page.evaluate(() => (window as any).__underlayFrame)).toBeGreaterThan(before);
+    expect(await page.evaluate(() => (window as any).__underlayDraw)).toBeUndefined();
+    await page.getByRole('combobox', { name: 'Current floor', exact: true }).selectOption({ label: 'Trace Floor' });
+    await expect.poll(() => page.evaluate(() => Boolean((window as any).__underlayDraw))).toBe(true);
+  }
+  const files = await packageDownload(page), plan = packageJSON(files['plan.json']);
+  if (owned) expect(plan.underlay.level).toBe(3);
+  else expect(plan.underlay.level).toBeUndefined();
+  expect(plan.underlay).toMatchObject({ angle: Math.PI / 2, center: { x: 3, y: 2 }, widthMeters: 4 });
+  expect(files[`assets/${plan.underlay.imageFilename}`]).toEqual(new Uint8Array(await readFile('tests/fixtures/underlay-orientation.png')));
+  await testInfo.attach('native-return-underlay', { body: await page.screenshot(), contentType: 'image/png' });
+  check();
+});
