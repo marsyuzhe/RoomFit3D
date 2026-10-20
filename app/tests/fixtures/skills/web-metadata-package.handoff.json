@@ -1,0 +1,531 @@
+{
+  "ok": true,
+  "title": "QA Project Package",
+  "producer": "web",
+  "units": {
+    "metric": "metres and square metres",
+    "imperial": "feet and square feet, rounded to 0.1"
+  },
+  "summary": {
+    "levelCount": 3,
+    "roomCount": 1,
+    "wallCount": 5,
+    "doorCount": 4,
+    "windowCount": 2,
+    "furnitureCount": 1,
+    "livingArea": null,
+    "grossArea": null,
+    "wallRun": {
+      "value": 23.473,
+      "unit": "m",
+      "imperial": 77.0,
+      "imperialUnit": "ft"
+    },
+    "wallAreaNet": {
+      "value": 53.58,
+      "unit": "m\u00b2",
+      "imperial": 576.7,
+      "imperialUnit": "ft\u00b2"
+    },
+    "roomsWithPhotos": 1,
+    "photoFileCount": 2
+  },
+  "levels": [
+    {
+      "index": 0,
+      "name": "Entry",
+      "livingArea": null,
+      "grossArea": null,
+      "wallRun": {
+        "value": 20.0,
+        "unit": "m",
+        "imperial": 65.6,
+        "imperialUnit": "ft"
+      },
+      "wallAreaGross": {
+        "value": 54.7,
+        "unit": "m\u00b2",
+        "imperial": 588.8,
+        "imperialUnit": "ft\u00b2"
+      },
+      "wallAreaNet": {
+        "value": 44.498,
+        "unit": "m\u00b2",
+        "imperial": 479.0,
+        "imperialUnit": "ft\u00b2"
+      },
+      "openingArea": {
+        "value": 10.202,
+        "unit": "m\u00b2",
+        "imperial": 109.8,
+        "imperialUnit": "ft\u00b2"
+      },
+      "doorCount": 4,
+      "windowCount": 2,
+      "wallCount": 4,
+      "furnitureCount": 1,
+      "rooms": [
+        {
+          "name": "QA Kitchen",
+          "type": "office",
+          "floorOpening": false,
+          "floorArea": null,
+          "ceilingArea": null,
+          "ceilingHeight": {
+            "value": 2.876,
+            "unit": "m",
+            "imperial": 9.4,
+            "imperialUnit": "ft"
+          },
+          "boundaryWallRun": null,
+          "boundaryWallAreaGross": null,
+          "boundaryWallAreaNet": null,
+          "boundaryDoorCount": 0,
+          "boundaryWindowCount": 0,
+          "photoCount": 1,
+          "photos": [
+            "chair.png"
+          ],
+          "note": "Web room notes"
+        }
+      ],
+      "openings": [
+        {
+          "kind": "door",
+          "style": "single",
+          "width": {
+            "value": 0.915,
+            "unit": "m",
+            "imperial": 3.0,
+            "imperialUnit": "ft"
+          },
+          "height": {
+            "value": 2.035,
+            "unit": "m",
+            "imperial": 6.7,
+            "imperialUnit": "ft"
+          },
+          "sillHeight": null,
+          "wallHeight": {
+            "value": 2.735,
+            "unit": "m",
+            "imperial": 9.0,
+            "imperialUnit": "ft"
+          },
+          "positionAlongWall": 0.3,
+          "price": 0
+        },
+        {
+          "kind": "door",
+          "style": "double",
+          "width": {
+            "value": 0.915,
+            "unit": "m",
+            "imperial": 3.0,
+            "imperialUnit": "ft"
+          },
+          "height": {
+            "value": 2.035,
+            "unit": "m",
+            "imperial": 6.7,
+            "imperialUnit": "ft"
+          },
+          "sillHeight": null,
+          "wallHeight": {
+            "value": 2.735,
+            "unit": "m",
+            "imperial": 9.0,
+            "imperialUnit": "ft"
+          },
+          "positionAlongWall": 0.3,
+          "price": null
+        },
+        {
+          "kind": "door",
+          "style": "sliding",
+          "width": {
+            "value": 0.915,
+            "unit": "m",
+            "imperial": 3.0,
+            "imperialUnit": "ft"
+          },
+          "height": {
+            "value": 2.035,
+            "unit": "m",
+            "imperial": 6.7,
+            "imperialUnit": "ft"
+          },
+          "sillHeight": null,
+          "wallHeight": {
+            "value": 2.735,
+            "unit": "m",
+            "imperial": 9.0,
+            "imperialUnit": "ft"
+          },
+          "positionAlongWall": 0.3,
+          "price": null
+        },
+        {
+          "kind": "door",
+          "style": "patio",
+          "width": {
+            "value": 0.915,
+            "unit": "m",
+            "imperial": 3.0,
+            "imperialUnit": "ft"
+          },
+          "height": {
+            "value": 2.035,
+            "unit": "m",
+            "imperial": 6.7,
+            "imperialUnit": "ft"
+          },
+          "sillHeight": null,
+          "wallHeight": {
+            "value": 2.735,
+            "unit": "m",
+            "imperial": 9.0,
+            "imperialUnit": "ft"
+          },
+          "positionAlongWall": 0.3,
+          "price": null
+        },
+        {
+          "kind": "window",
+          "style": "fixed",
+          "width": {
+            "value": 1.235,
+            "unit": "m",
+            "imperial": 4.1,
+            "imperialUnit": "ft"
+          },
+          "height": {
+            "value": 1.115,
+            "unit": "m",
+            "imperial": 3.7,
+            "imperialUnit": "ft"
+          },
+          "sillHeight": {
+            "value": 0.735,
+            "unit": "m",
+            "imperial": 2.4,
+            "imperialUnit": "ft"
+          },
+          "wallHeight": {
+            "value": 2.735,
+            "unit": "m",
+            "imperial": 9.0,
+            "imperialUnit": "ft"
+          },
+          "positionAlongWall": 0.75,
+          "price": null
+        },
+        {
+          "kind": "window",
+          "style": "sliding",
+          "width": {
+            "value": 1.235,
+            "unit": "m",
+            "imperial": 4.1,
+            "imperialUnit": "ft"
+          },
+          "height": {
+            "value": 1.115,
+            "unit": "m",
+            "imperial": 3.7,
+            "imperialUnit": "ft"
+          },
+          "sillHeight": {
+            "value": 0.835,
+            "unit": "m",
+            "imperial": 2.7,
+            "imperialUnit": "ft"
+          },
+          "wallHeight": {
+            "value": 2.735,
+            "unit": "m",
+            "imperial": 9.0,
+            "imperialUnit": "ft"
+          },
+          "positionAlongWall": 0.75,
+          "price": null
+        }
+      ],
+      "furniture": {
+        "chair": {
+          "count": 1,
+          "items": [
+            {
+              "width": {
+                "value": 0.555,
+                "unit": "m",
+                "imperial": 1.8,
+                "imperialUnit": "ft"
+              },
+              "depth": {
+                "value": 0.625,
+                "unit": "m",
+                "imperial": 2.1,
+                "imperialUnit": "ft"
+              },
+              "height": null,
+              "note": null,
+              "price": 123.456,
+              "photoCount": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 2,
+      "name": "Loft",
+      "livingArea": null,
+      "grossArea": null,
+      "wallRun": {
+        "value": 3.473,
+        "unit": "m",
+        "imperial": 11.4,
+        "imperialUnit": "ft"
+      },
+      "wallAreaGross": {
+        "value": 9.082,
+        "unit": "m\u00b2",
+        "imperial": 97.8,
+        "imperialUnit": "ft\u00b2"
+      },
+      "wallAreaNet": {
+        "value": 9.082,
+        "unit": "m\u00b2",
+        "imperial": 97.8,
+        "imperialUnit": "ft\u00b2"
+      },
+      "openingArea": {
+        "value": 0,
+        "unit": "m\u00b2",
+        "imperial": 0.0,
+        "imperialUnit": "ft\u00b2"
+      },
+      "doorCount": 0,
+      "windowCount": 0,
+      "wallCount": 1,
+      "furnitureCount": 0,
+      "rooms": [],
+      "openings": [],
+      "furniture": {}
+    },
+    {
+      "index": 3,
+      "name": "Future Floor",
+      "livingArea": null,
+      "grossArea": null,
+      "wallRun": {
+        "value": 0,
+        "unit": "m",
+        "imperial": 0.0,
+        "imperialUnit": "ft"
+      },
+      "wallAreaGross": {
+        "value": 0,
+        "unit": "m\u00b2",
+        "imperial": 0.0,
+        "imperialUnit": "ft\u00b2"
+      },
+      "wallAreaNet": {
+        "value": 0,
+        "unit": "m\u00b2",
+        "imperial": 0.0,
+        "imperialUnit": "ft\u00b2"
+      },
+      "openingArea": {
+        "value": 0,
+        "unit": "m\u00b2",
+        "imperial": 0.0,
+        "imperialUnit": "ft\u00b2"
+      },
+      "doorCount": 0,
+      "windowCount": 0,
+      "wallCount": 0,
+      "furnitureCount": 0,
+      "rooms": [],
+      "openings": [],
+      "furniture": {}
+    }
+  ],
+  "quantities": [
+    {
+      "key": "wallAreaNetLevel",
+      "description": "Wall area net of openings, Entry",
+      "level": "Entry",
+      "room": null,
+      "quantity": 44.498,
+      "unit": "m\u00b2",
+      "imperialQuantity": 479.0,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallAreaGrossLevel",
+      "description": "Wall area gross, Entry",
+      "level": "Entry",
+      "room": null,
+      "quantity": 54.7,
+      "unit": "m\u00b2",
+      "imperialQuantity": 588.8,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallRunLevel",
+      "description": "Wall run, Entry",
+      "level": "Entry",
+      "room": null,
+      "quantity": 20.0,
+      "unit": "m",
+      "imperialQuantity": 65.6,
+      "imperialUnit": "ft"
+    },
+    {
+      "key": "doors",
+      "description": "Doors, Entry",
+      "level": "Entry",
+      "room": null,
+      "quantity": 4,
+      "unit": "count"
+    },
+    {
+      "key": "windows",
+      "description": "Windows, Entry",
+      "level": "Entry",
+      "room": null,
+      "quantity": 2,
+      "unit": "count"
+    },
+    {
+      "key": "wallAreaNetLevel",
+      "description": "Wall area net of openings, Loft",
+      "level": "Loft",
+      "room": null,
+      "quantity": 9.082,
+      "unit": "m\u00b2",
+      "imperialQuantity": 97.8,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallAreaGrossLevel",
+      "description": "Wall area gross, Loft",
+      "level": "Loft",
+      "room": null,
+      "quantity": 9.082,
+      "unit": "m\u00b2",
+      "imperialQuantity": 97.8,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallRunLevel",
+      "description": "Wall run, Loft",
+      "level": "Loft",
+      "room": null,
+      "quantity": 3.473,
+      "unit": "m",
+      "imperialQuantity": 11.4,
+      "imperialUnit": "ft"
+    },
+    {
+      "key": "doors",
+      "description": "Doors, Loft",
+      "level": "Loft",
+      "room": null,
+      "quantity": 0,
+      "unit": "count"
+    },
+    {
+      "key": "windows",
+      "description": "Windows, Loft",
+      "level": "Loft",
+      "room": null,
+      "quantity": 0,
+      "unit": "count"
+    },
+    {
+      "key": "wallAreaNetLevel",
+      "description": "Wall area net of openings, Future Floor",
+      "level": "Future Floor",
+      "room": null,
+      "quantity": 0,
+      "unit": "m\u00b2",
+      "imperialQuantity": 0.0,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallAreaGrossLevel",
+      "description": "Wall area gross, Future Floor",
+      "level": "Future Floor",
+      "room": null,
+      "quantity": 0,
+      "unit": "m\u00b2",
+      "imperialQuantity": 0.0,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallRunLevel",
+      "description": "Wall run, Future Floor",
+      "level": "Future Floor",
+      "room": null,
+      "quantity": 0,
+      "unit": "m",
+      "imperialQuantity": 0.0,
+      "imperialUnit": "ft"
+    },
+    {
+      "key": "doors",
+      "description": "Doors, Future Floor",
+      "level": "Future Floor",
+      "room": null,
+      "quantity": 0,
+      "unit": "count"
+    },
+    {
+      "key": "windows",
+      "description": "Windows, Future Floor",
+      "level": "Future Floor",
+      "room": null,
+      "quantity": 0,
+      "unit": "count"
+    }
+  ],
+  "notes": {
+    "planNotes": "Keep the complete plan notes",
+    "pinnedNotes": [
+      "Pinned note"
+    ],
+    "wallNotes": [
+      "Web construction notes"
+    ],
+    "roomNotes": [
+      {
+        "room": "QA Kitchen",
+        "note": "Web room notes"
+      }
+    ],
+    "furnitureNotes": []
+  },
+  "costs": {
+    "pricedItemCount": 2,
+    "pricedTotal": 123.46,
+    "unpricedItemCount": 5,
+    "note": "User-entered prices with no currency; not an estimate."
+  },
+  "evidence": {
+    "missingPhotos": [],
+    "unreferencedFiles": [
+      "orphan.png"
+    ]
+  },
+  "assumptions": [
+    "Wall runs are centreline lengths; wall areas are run \u00d7 height with doors and windows deducted for the net figure.",
+    "Ceiling area is taken as equal to floor area (flat ceilings assumed).",
+    "A wall shared by two rooms appears in both rooms' boundary figures; use level totals for material takeoff.",
+    "This export has no statistics block, so room floor and ceiling areas are unavailable; re-export from a current app version for areas."
+  ],
+  "gaps": [],
+  "codesApplied": []
+}

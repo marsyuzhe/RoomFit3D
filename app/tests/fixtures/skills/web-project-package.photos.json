@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "title": "QA Web Package",
+  "producer": "web",
+  "source": "package",
+  "coverage": {
+    "roomsWithPhotos": 0,
+    "roomCount": 0,
+    "furnitureWithPhotos": 0,
+    "furnitureCount": 1,
+    "photoFileCount": 0,
+    "referencedPhotoCount": 0,
+    "hasTracingImage": true
+  },
+  "rooms": [],
+  "furniture": [
+    {
+      "id": "e0019492-45d0-475a-8acf-2d109106d1aa",
+      "category": "chair",
+      "level": 0,
+      "nearestRoom": null,
+      "photoCount": 0,
+      "photos": [],
+      "note": null,
+      "price": null
+    }
+  ],
+  "files": [
+    {
+      "name": "web-underlay-21539630.png",
+      "bytes": 68,
+      "format": "png",
+      "width": 1,
+      "height": 1,
+      "referencedBy": [
+        "tracing image"
+      ],
+      "lowResolution": true,
+      "isImage": true
+    }
+  ],
+  "missing": [],
+  "unreferenced": [],
+  "shared": {},
+  "gaps": [
+    "No room labels, so photo coverage cannot be reported per room.",
+    "1 furniture item(s) have no photos: 1 chair.",
+    "Photo 'web-underlay-21539630.png' is 1\u00d71 px, below 800 px; it may not be usable as evidence."
+  ],
+  "limitations": [
+    "Only PNG, JPEG and GIF dimensions are read from file headers; HEIC and other formats report no size.",
+    "Furniture is matched to the nearest room label on its level, not to a room boundary.",
+    "Photo content is not inspected; this reports presence, size and references only."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "ok": true,
+  "title": "QA Project Package",
+  "producer": "web",
+  "format": "openplan3d-project",
+  "units": "metres",
+  "levelCount": 3,
+  "levels": [
+    {
+      "index": 0,
+      "name": "Entry",
+      "wallCount": 4,
+      "wallLength": 20.0,
+      "wallAreaGross": 54.7,
+      "wallAreaNet": 44.498,
+      "doorCount": 4,
+      "windowCount": 2,
+      "roomCount": 1,
+      "furnitureCount": 1,
+      "boundingExtentMetres": {
+        "width": 6,
+        "depth": 4
+      },
+      "rooms": [
+        {
+          "name": "QA Kitchen",
+          "type": "office",
+          "ceilingHeight": 2.87625,
+          "hasBoundary": false,
+          "photoCount": 1,
+          "note": "Web room notes"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Loft",
+      "wallCount": 1,
+      "wallLength": 3.473,
+      "wallAreaGross": 9.082,
+      "wallAreaNet": 9.082,
+      "doorCount": 0,
+      "windowCount": 0,
+      "roomCount": 0,
+      "furnitureCount": 0,
+      "boundingExtentMetres": {
+        "width": 3.2,
+        "depth": 1.35
+      },
+      "rooms": []
+    },
+    {
+      "index": 3,
+      "name": "Future Floor",
+      "wallCount": 0,
+      "wallLength": 0,
+      "wallAreaGross": 0,
+      "wallAreaNet": 0.0,
+      "doorCount": 0,
+      "windowCount": 0,
+      "roomCount": 0,
+      "furnitureCount": 0,
+      "boundingExtentMetres": null,
+      "rooms": []
+    }
+  ],
+  "totals": {
+    "wallCount": 5,
+    "wallLength": 23.473,
+    "wallAreaGross": 63.782,
+    "wallAreaNet": 53.58,
+    "doorCount": 4,
+    "windowCount": 2,
+    "roomCount": 1,
+    "furnitureCount": 1,
+    "furnitureByCategory": {
+      "chair": 1
+    },
+    "pricedItemCount": 2,
+    "pricedTotal": 123.46
+  },
+  "notes": {
+    "planNotes": "Keep the complete plan notes",
+    "pinnedNotes": [
+      "Pinned note"
+    ],
+    "wallNotes": [
+      "Web construction notes"
+    ],
+    "furnitureNotes": []
+  },
+  "attachments": {
+    "assetCount": 3,
+    "referencedPhotoCount": 2,
+    "missingAssets": [],
+    "unreferencedAssets": [
+      "orphan.png"
+    ],
+    "hasTracingImage": true
+  },
+  "areas": null,
+  "documentationGaps": [
+    "Room 'QA Kitchen' has no stored wall boundary; this export carries no measured area for it."
+  ],
+  "limitations": [
+    "This export has no statistics block, so room floor areas are unavailable; the script reports wall lengths, wall areas and bounding extents only. Re-export from a current app version to include areas.",
+    "Wall areas use default heights (2.4 m) and opening heights (door 2.0 m, window 1.2 m) where the plan omits them.",
+    "Prices are user-entered and unverified; no currency is stored."
+  ]
+}

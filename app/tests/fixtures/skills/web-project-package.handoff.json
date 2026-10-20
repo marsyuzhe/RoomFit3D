@@ -1,0 +1,168 @@
+{
+  "ok": true,
+  "title": "QA Web Package",
+  "producer": "web",
+  "units": {
+    "metric": "metres and square metres",
+    "imperial": "feet and square feet, rounded to 0.1"
+  },
+  "summary": {
+    "levelCount": 1,
+    "roomCount": 0,
+    "wallCount": 4,
+    "doorCount": 0,
+    "windowCount": 0,
+    "furnitureCount": 1,
+    "livingArea": null,
+    "grossArea": null,
+    "wallRun": {
+      "value": 14.0,
+      "unit": "m",
+      "imperial": 45.9,
+      "imperialUnit": "ft"
+    },
+    "wallAreaNet": {
+      "value": 35.94,
+      "unit": "m\u00b2",
+      "imperial": 386.9,
+      "imperialUnit": "ft\u00b2"
+    },
+    "roomsWithPhotos": 0,
+    "photoFileCount": 0
+  },
+  "levels": [
+    {
+      "index": 0,
+      "name": "Ground Floor",
+      "livingArea": null,
+      "grossArea": null,
+      "wallRun": {
+        "value": 14.0,
+        "unit": "m",
+        "imperial": 45.9,
+        "imperialUnit": "ft"
+      },
+      "wallAreaGross": {
+        "value": 35.94,
+        "unit": "m\u00b2",
+        "imperial": 386.9,
+        "imperialUnit": "ft\u00b2"
+      },
+      "wallAreaNet": {
+        "value": 35.94,
+        "unit": "m\u00b2",
+        "imperial": 386.9,
+        "imperialUnit": "ft\u00b2"
+      },
+      "openingArea": {
+        "value": 0,
+        "unit": "m\u00b2",
+        "imperial": 0.0,
+        "imperialUnit": "ft\u00b2"
+      },
+      "doorCount": 0,
+      "windowCount": 0,
+      "wallCount": 4,
+      "furnitureCount": 1,
+      "rooms": [],
+      "openings": [],
+      "furniture": {
+        "chair": {
+          "count": 1,
+          "items": [
+            {
+              "width": {
+                "value": 1.3,
+                "unit": "m",
+                "imperial": 4.3,
+                "imperialUnit": "ft"
+              },
+              "depth": {
+                "value": 0.825,
+                "unit": "m",
+                "imperial": 2.7,
+                "imperialUnit": "ft"
+              },
+              "height": null,
+              "note": null,
+              "price": null,
+              "photoCount": 0
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "quantities": [
+    {
+      "key": "wallAreaNetLevel",
+      "description": "Wall area net of openings, Ground Floor",
+      "level": "Ground Floor",
+      "room": null,
+      "quantity": 35.94,
+      "unit": "m\u00b2",
+      "imperialQuantity": 386.9,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallAreaGrossLevel",
+      "description": "Wall area gross, Ground Floor",
+      "level": "Ground Floor",
+      "room": null,
+      "quantity": 35.94,
+      "unit": "m\u00b2",
+      "imperialQuantity": 386.9,
+      "imperialUnit": "ft\u00b2"
+    },
+    {
+      "key": "wallRunLevel",
+      "description": "Wall run, Ground Floor",
+      "level": "Ground Floor",
+      "room": null,
+      "quantity": 14.0,
+      "unit": "m",
+      "imperialQuantity": 45.9,
+      "imperialUnit": "ft"
+    },
+    {
+      "key": "doors",
+      "description": "Doors, Ground Floor",
+      "level": "Ground Floor",
+      "room": null,
+      "quantity": 0,
+      "unit": "count"
+    },
+    {
+      "key": "windows",
+      "description": "Windows, Ground Floor",
+      "level": "Ground Floor",
+      "room": null,
+      "quantity": 0,
+      "unit": "count"
+    }
+  ],
+  "notes": {
+    "planNotes": null,
+    "pinnedNotes": [
+      "Web note"
+    ],
+    "wallNotes": [],
+    "roomNotes": [],
+    "furnitureNotes": []
+  },
+  "costs": null,
+  "evidence": {
+    "missingPhotos": [],
+    "unreferencedFiles": []
+  },
+  "assumptions": [
+    "Wall runs are centreline lengths; wall areas are run \u00d7 height with doors and windows deducted for the net figure.",
+    "Ceiling area is taken as equal to floor area (flat ceilings assumed).",
+    "A wall shared by two rooms appears in both rooms' boundary figures; use level totals for material takeoff.",
+    "This export has no statistics block, so room floor and ceiling areas are unavailable; re-export from a current app version for areas."
+  ],
+  "gaps": [
+    "No room labels: per-room quantities are unavailable; only level totals are reported."
+  ],
+  "codesApplied": []
+}

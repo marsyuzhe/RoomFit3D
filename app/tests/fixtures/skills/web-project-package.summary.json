@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "title": "QA Web Package",
+  "producer": "web",
+  "format": "openplan3d-project",
+  "units": "metres",
+  "levelCount": 1,
+  "levels": [
+    {
+      "index": 0,
+      "name": "Ground Floor",
+      "wallCount": 4,
+      "wallLength": 14.0,
+      "wallAreaGross": 35.94,
+      "wallAreaNet": 35.94,
+      "doorCount": 0,
+      "windowCount": 0,
+      "roomCount": 0,
+      "furnitureCount": 1,
+      "boundingExtentMetres": {
+        "width": 4,
+        "depth": 3
+      },
+      "rooms": []
+    }
+  ],
+  "totals": {
+    "wallCount": 4,
+    "wallLength": 14.0,
+    "wallAreaGross": 35.94,
+    "wallAreaNet": 35.94,
+    "doorCount": 0,
+    "windowCount": 0,
+    "roomCount": 0,
+    "furnitureCount": 1,
+    "furnitureByCategory": {
+      "chair": 1
+    },
+    "pricedItemCount": 0,
+    "pricedTotal": 0
+  },
+  "notes": {
+    "planNotes": null,
+    "pinnedNotes": [
+      "Web note"
+    ],
+    "wallNotes": [],
+    "furnitureNotes": []
+  },
+  "attachments": {
+    "assetCount": 1,
+    "referencedPhotoCount": 1,
+    "missingAssets": [],
+    "unreferencedAssets": [],
+    "hasTracingImage": true
+  },
+  "areas": null,
+  "documentationGaps": [
+    "No room labels: room names and areas are unavailable."
+  ],
+  "limitations": [
+    "This export has no statistics block, so room floor areas are unavailable; the script reports wall lengths, wall areas and bounding extents only. Re-export from a current app version to include areas.",
+    "Wall areas use default heights (2.4 m) and opening heights (door 2.0 m, window 1.2 m) where the plan omits them.",
+    "Prices are user-entered and unverified; no currency is stored."
+  ]
+}

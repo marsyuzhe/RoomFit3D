@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "title": "QA Project Package",
+  "producer": "web",
+  "source": "package",
+  "coverage": {
+    "roomsWithPhotos": 1,
+    "roomCount": 1,
+    "furnitureWithPhotos": 1,
+    "furnitureCount": 1,
+    "photoFileCount": 3,
+    "referencedPhotoCount": 2,
+    "hasTracingImage": true
+  },
+  "rooms": [
+    {
+      "id": "00000000-0000-4000-8000-000000000040",
+      "name": "QA Kitchen",
+      "type": "office",
+      "level": 0,
+      "levelName": "Entry",
+      "floorArea": null,
+      "photoCount": 1,
+      "photos": [
+        "chair.png"
+      ],
+      "note": "Web room notes",
+      "coverage": "single"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "00000000-0000-4000-8000-000000000050",
+      "category": "chair",
+      "level": 0,
+      "nearestRoom": "QA Kitchen",
+      "photoCount": 1,
+      "photos": [
+        "new-photo.png"
+      ],
+      "note": null,
+      "price": 123.456
+    }
+  ],
+  "files": [
+    {
+      "name": "chair.png",
+      "bytes": 68,
+      "format": "png",
+      "width": 1,
+      "height": 1,
+      "referencedBy": [
+        "room QA Kitchen",
+        "tracing image"
+      ],
+      "lowResolution": true,
+      "isImage": true
+    },
+    {
+      "name": "new-photo.png",
+      "bytes": 93,
+      "format": "png",
+      "width": 32,
+      "height": 24,
+      "referencedBy": [
+        "chair on Entry"
+      ],
+      "lowResolution": true,
+      "isImage": true
+    },
+    {
+      "name": "orphan.png",
+      "bytes": 68,
+      "format": "png",
+      "width": 1,
+      "height": 1,
+      "referencedBy": [],
+      "lowResolution": true,
+      "isImage": true
+    }
+  ],
+  "missing": [],
+  "unreferenced": [
+    "orphan.png"
+  ],
+  "shared": {
+    "chair.png": [
+      "room QA Kitchen",
+      "tracing image"
+    ]
+  },
+  "gaps": [
+    "Room 'QA Kitchen' (Entry) has only one photo; a second angle is recommended.",
+    "Photo 'chair.png' is 1\u00d71 px, below 800 px; it may not be usable as evidence.",
+    "Photo 'new-photo.png' is 32\u00d724 px, below 800 px; it may not be usable as evidence.",
+    "Photo 'orphan.png' is 1\u00d71 px, below 800 px; it may not be usable as evidence.",
+    "1 attachment(s) are not attached to any room or item: orphan.png.",
+    "Photo 'chair.png' is shared by 2 items: room QA Kitchen, tracing image."
+  ],
+  "limitations": [
+    "Only PNG, JPEG and GIF dimensions are read from file headers; HEIC and other formats report no size.",
+    "Furniture is matched to the nearest room label on its level, not to a room boundary.",
+    "Photo content is not inspected; this reports presence, size and references only."
+  ]
+}
